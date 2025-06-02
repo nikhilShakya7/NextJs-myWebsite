@@ -40,12 +40,9 @@ const technologies = [
 export default function Home() {
   return (
     <div className="relative overflow-hidden bg-gradient-to-br from-slate-50 via-white to-blue-50 dark:from-gray-950 dark:via-gray-900 dark:to-blue-950 transition-all duration-500">
-      {/* Enhanced Background Effects */}
       <div className="absolute inset-0 -z-20">
-        {/* Animated Gradient Mesh */}
         <div className="absolute inset-0 bg-gradient-to-br from-blue-50/80 via-purple-50/60 to-pink-50/80 dark:from-blue-950/30 dark:via-purple-950/20 dark:to-pink-950/30" />
 
-        {/* Dynamic Grid Pattern */}
         <div
           className="absolute inset-0 opacity-[0.15] dark:opacity-[0.08]"
           style={{
@@ -57,7 +54,6 @@ export default function Home() {
           }}
         />
 
-        {/* Subtle Noise Texture */}
         <div
           className="absolute inset-0 opacity-[0.03] dark:opacity-[0.02] mix-blend-overlay"
           style={{
@@ -66,9 +62,7 @@ export default function Home() {
         />
       </div>
 
-      {/* Enhanced Floating Elements */}
       <div className="absolute inset-0 -z-10 overflow-hidden">
-        {/* Large Gradient Orbs with Better Blending */}
         <motion.div
           animate={{
             x: [0, 100, 0],
@@ -113,7 +107,6 @@ export default function Home() {
           className="absolute bottom-0 left-1/3 w-72 h-72 bg-gradient-to-tr from-violet-400/25 via-pink-400/20 to-rose-400/25 dark:from-violet-500/15 dark:via-pink-500/12 dark:to-rose-500/15 rounded-full blur-3xl"
         />
 
-        {/* Enhanced Floating Icons with Better Animations */}
         <motion.div
           animate={{
             y: [0, -15, 0],
@@ -291,12 +284,10 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Enhanced Skills Section */}
       <div className="relative py-32 bg-gradient-to-br from-white/50 via-blue-50/80 to-purple-50/60 dark:from-gray-900/80 dark:via-blue-950/40 dark:to-purple-950/30 backdrop-blur-sm">
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/20 to-transparent dark:via-gray-900/20" />
 
         <div className="max-w-7xl mx-auto px-6 sm:px-12 lg:px-8 relative">
-          {/* Enhanced Floating Decorations */}
           <motion.div
             animate={{
               y: [0, -20, 0],
