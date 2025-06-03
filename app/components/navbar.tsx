@@ -3,50 +3,12 @@
 import Link from "next/link";
 import { motion } from "../../lib/framer-exports";
 import { usePathname } from "next/navigation";
-import { useState, useEffect } from "react";
-import {
-  MoonIcon,
-  SunIcon,
-  Bars3Icon,
-  XMarkIcon,
-} from "@heroicons/react/24/solid";
+import { useState } from "react";
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
 
 export function Navbar() {
   const pathname = usePathname();
-  const [darkMode, setDarkMode] = useState(false);
-  const [mounted, setMounted] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-
-    const savedTheme = localStorage.getItem("theme");
-    const prefersDark = window.matchMedia(
-      "(prefers-color-scheme: dark)"
-    ).matches;
-
-    if (savedTheme === "dark" || (!savedTheme && prefersDark)) {
-      document.documentElement.classList.add("dark");
-      setDarkMode(true);
-    } else {
-      document.documentElement.classList.remove("dark");
-      setDarkMode(false);
-    }
-  }, []);
-
-  const toggleDarkMode = () => {
-    const newDarkMode = !darkMode;
-
-    if (newDarkMode) {
-      localStorage.setItem("theme", "dark");
-      document.documentElement.classList.add("dark");
-    } else {
-      localStorage.setItem("theme", "light");
-      document.documentElement.classList.remove("dark");
-    }
-
-    setDarkMode(newDarkMode);
-  };
 
   const links = [
     { href: "/", label: "Home" },
@@ -54,35 +16,6 @@ export function Navbar() {
     { href: "/projects", label: "Work" },
     { href: "/contact", label: "Contact" },
   ];
-
-  if (!mounted) {
-    return (
-      <nav className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-200 shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between h-20 items-center">
-            <Link href="/" className="flex items-center">
-              <span className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                Nikhil Shakya
-              </span>
-            </Link>
-            <div className="hidden md:flex items-center space-x-8">
-              {links.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className="px-1 py-2 text-sm font-medium text-gray-600 hover:text-blue-600"
-                >
-                  {link.label}
-                </Link>
-              ))}
-              <div className="p-2 rounded-full w-9 h-9"></div>
-            </div>
-            <div className="md:hidden p-2 rounded-full w-9 h-9"></div>
-          </div>
-        </div>
-      </nav>
-    );
-  }
 
   return (
     <>
@@ -129,33 +62,10 @@ export function Navbar() {
                   {link.label}
                 </Link>
               ))}
-
-              <button
-                onClick={toggleDarkMode}
-                className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors"
-                aria-label="Toggle dark mode"
-              >
-                {darkMode ? (
-                  <SunIcon className="h-5 w-5 text-yellow-400" />
-                ) : (
-                  <MoonIcon className="h-5 w-5 text-gray-700 dark:text-gray-300" />
-                )}
-              </button>
             </div>
 
             {/* Mobile menu button */}
             <div className="md:hidden flex items-center">
-              <button
-                onClick={toggleDarkMode}
-                className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors mr-2"
-                aria-label="Toggle dark mode"
-              >
-                {darkMode ? (
-                  <SunIcon className="h-5 w-5 text-yellow-400" />
-                ) : (
-                  <MoonIcon className="h-5 w-5 text-gray-700 dark:text-gray-300" />
-                )}
-              </button>
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors"

@@ -1,18 +1,13 @@
 "use client";
 
 import Link from "next/link";
-import { motion, useInView } from "framer-motion";
+import { motion } from "framer-motion";
 import {
   ArrowRightIcon,
   CodeBracketIcon,
   PaintBrushIcon,
   DevicePhoneMobileIcon,
   CloudIcon,
-  SparklesIcon,
-  CommandLineIcon,
-  CubeIcon,
-  LightBulbIcon,
-  StarIcon,
 } from "@heroicons/react/24/outline";
 
 const skills = [
@@ -41,11 +36,9 @@ const technologies = [
 export default function Home() {
   return (
     <div className="relative overflow-hidden bg-gradient-to-br from-slate-50 via-white to-blue-50 dark:from-gray-950 dark:via-gray-900 dark:to-blue-950 transition-colors duration-300">
-      {/* Simplified Background Elements */}
       <div className="absolute inset-0 -z-20">
         <div className="absolute inset-0 bg-gradient-to-br from-blue-50/80 to-pink-50/80 dark:from-blue-950/30 dark:to-pink-950/30" />
 
-        {/* Reduced background grid complexity */}
         <div
           className="absolute inset-0 opacity-[0.05] dark:opacity-[0.03]"
           style={{
@@ -55,7 +48,6 @@ export default function Home() {
         />
       </div>
 
-      {/* Reduced Motion Background Elements */}
       <div className="absolute inset-0 -z-10 overflow-hidden">
         <motion.div
           animate={{
@@ -85,7 +77,6 @@ export default function Home() {
         />
       </div>
 
-      {/* Hero Section */}
       <div className="min-h-screen flex items-center relative">
         <div className="max-w-7xl mx-auto px-6 sm:px-12 lg:px-8 py-24 md:py-32">
           <motion.div
@@ -129,7 +120,8 @@ export default function Home() {
               transition={{ delay: 0.5, duration: 0.8 }}
               className="mt-8 text-xl md:text-2xl text-gray-700 dark:text-gray-300 max-w-4xl leading-relaxed"
             >
-              A passionate developer crafting digital experiences that{" "}
+              A passionate developer learning and crafting digital experiences
+              that{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 font-semibold">
                 inspire and connect
               </span>{" "}
