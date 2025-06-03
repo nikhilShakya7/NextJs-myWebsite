@@ -3,7 +3,9 @@ import { Navbar } from "./components/navbar";
 import { Footer } from "./components/footer";
 export const metadata = {
   title: "Nikhil | Professional Portfolio",
+
   description: "Showcase of my work and skills",
+  icon: "favicon.ico",
 };
 
 export default function RootLayout({
@@ -13,6 +15,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="scroll-smooth">
+      <head>
+        <link
+          rel="icon"
+          href="/bussiness-man.png"
+          type="image/png"
+          sizes="32x32"
+        />
+      </head>
       <body className="bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
         <Navbar />
         <main className="min-h-[calc(100vh-128px)]">

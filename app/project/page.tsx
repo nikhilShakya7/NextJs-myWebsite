@@ -79,13 +79,12 @@ export default function Projects() {
           }}
         />
         <div className="absolute inset-0 bg-gradient-to-br from-blue-900/30 via-purple-900/20 to-pink-900/30" />
-        <div className="absolute inset-0 bg-[url('/images/grid.svg')] opacity-10" />
       </div>
 
       <div className="relative min-h-screen p-8 pt-24">
         <div className="max-w-6xl mx-auto">
           <div className="mb-12 text-center">
-            <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent mb-4">
+            <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent mb-4 mt--">
               My Mini Projects
             </h1>
             <p className="text-lg text-gray-300 max-w-2xl mx-auto">
