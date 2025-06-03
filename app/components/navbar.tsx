@@ -13,7 +13,7 @@ export function Navbar() {
   const links = [
     { href: "/", label: "Home" },
     { href: "/about", label: "About" },
-    { href: "/projects", label: "Work" },
+    { href: "/project", label: "Work" },
     { href: "/contact", label: "Contact" },
   ];
 
@@ -82,7 +82,6 @@ export function Navbar() {
         </div>
       </motion.nav>
 
-      {/* Mobile Menu */}
       {mobileMenuOpen && (
         <motion.div
           initial={{ opacity: 0, y: -20 }}
