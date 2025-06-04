@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 import { Send, Sparkles, Mail } from "lucide-react";
+import { motion } from "../../lib/framer-exports";
+import { fadeIn, staggerContainer, slideIn } from "../../utils/motion";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -41,24 +43,53 @@ export default function Contact() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 relative overflow-hidden">
+    <motion.div
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, amount: 0.25 }}
+      className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 relative overflow-hidden"
+    >
       {/* Animated background elements */}
       <div className="absolute inset-0">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-pink-500/5 rounded-full blur-3xl animate-pulse delay-2000"></div>
+        <motion.div
+          variants={fadeIn("right", "spring", 0.5, 1)}
+          className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse"
+        ></motion.div>
+        <motion.div
+          variants={fadeIn("left", "spring", 0.5, 1)}
+          className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse delay-1000"
+        ></motion.div>
+        <motion.div
+          variants={fadeIn("up", "spring", 0.5, 1)}
+          className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-pink-500/5 rounded-full blur-3xl animate-pulse delay-2000"
+        ></motion.div>
       </div>
 
       {/* Grid pattern overlay */}
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:50px_50px]"></div>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1 }}
+        className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:50px_50px]"
+      ></motion.div>
 
-      <div className="relative z-10 py-16 px-4 sm:px-6 lg:px-8">
+      <motion.div
+        variants={staggerContainer(0.1, 0.2)}
+        className="relative z-10 py-16 px-4 sm:px-6 lg:px-8"
+      >
         <div className="max-w-2xl mx-auto">
           {/* Header section */}
-          <div className="text-center mb-16">
-            <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl mb-8 shadow-2xl shadow-purple-500/25">
+          <motion.div
+            variants={fadeIn("up", "tween", 0.2, 1)}
+            className="text-center mb-16"
+          >
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl mb-8 shadow-2xl shadow-purple-500/25"
+            >
               <Mail className="w-10 h-10 text-white" />
-            </div>
+            </motion.div>
 
             <h1 className="text-6xl font-bold bg-gradient-to-r from-white via-purple-200 to-pink-200 bg-clip-text text-transparent mb-6 tracking-tight">
               Let's Connect
@@ -75,17 +106,36 @@ export default function Contact() {
               </span>
               <Sparkles className="w-5 h-5 text-purple-400 animate-pulse" />
             </div>
-          </div>
+          </motion.div>
 
           {/* Form card */}
-          <div className="relative">
+          <motion.div
+            variants={slideIn("up", "tween", 0.2, 1)}
+            className="relative"
+          >
             {/* Glow effect */}
-            <div className="absolute -inset-1 bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 rounded-2xl blur opacity-20 group-hover:opacity-100 transition duration-1000"></div>
+            <motion.div
+              animate={{
+                opacity: [0.2, 0.4, 0.2],
+              }}
+              transition={{
+                duration: 4,
+                repeat: Infinity,
+                repeatType: "reverse",
+              }}
+              className="absolute -inset-1 bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 rounded-2xl blur opacity-20 group-hover:opacity-100 transition duration-1000"
+            ></motion.div>
 
-            <div className="relative bg-slate-800/90 backdrop-blur-xl rounded-2xl border border-slate-700/50 shadow-2xl p-8 sm:p-12">
+            <motion.div
+              whileHover={{ scale: 1.01 }}
+              className="relative bg-slate-800/90 backdrop-blur-xl rounded-2xl border border-slate-700/50 shadow-2xl p-8 sm:p-12"
+            >
               <form onSubmit={handleSubmit} className="space-y-8">
                 {/* Name field */}
-                <div className="group">
+                <motion.div
+                  variants={fadeIn("up", "tween", 0.3, 1)}
+                  className="group"
+                >
                   <label
                     htmlFor="name"
                     className="block text-sm font-semibold text-slate-200 mb-3 transition-colors duration-300 group-focus-within:text-purple-400"
@@ -105,9 +155,12 @@ export default function Contact() {
                     />
                     <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-purple-500/0 via-purple-500/0 to-purple-500/0 group-focus-within:from-purple-500/10 group-focus-within:via-pink-500/10 group-focus-within:to-blue-500/10 transition-all duration-500 pointer-events-none"></div>
                   </div>
-                </div>
+                </motion.div>
 
-                <div className="group">
+                <motion.div
+                  variants={fadeIn("up", "tween", 0.4, 1)}
+                  className="group"
+                >
                   <label
                     htmlFor="email"
                     className="block text-sm font-semibold text-slate-200 mb-3 transition-colors duration-300 group-focus-within:text-purple-400"
@@ -127,9 +180,12 @@ export default function Contact() {
                     />
                     <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-purple-500/0 via-purple-500/0 to-purple-500/0 group-focus-within:from-purple-500/10 group-focus-within:via-pink-500/10 group-focus-within:to-blue-500/10 transition-all duration-500 pointer-events-none"></div>
                   </div>
-                </div>
+                </motion.div>
 
-                <div className="group">
+                <motion.div
+                  variants={fadeIn("up", "tween", 0.5, 1)}
+                  className="group"
+                >
                   <label
                     htmlFor="message"
                     className="block text-sm font-semibold text-slate-200 mb-3 transition-colors duration-300 group-focus-within:text-purple-400"
@@ -149,36 +205,60 @@ export default function Contact() {
                     />
                     <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-purple-500/0 via-purple-500/0 to-purple-500/0 group-focus-within:from-purple-500/10 group-focus-within:via-pink-500/10 group-focus-within:to-blue-500/10 transition-all duration-500 pointer-events-none"></div>
                   </div>
-                </div>
+                </motion.div>
 
-                <div className="pt-4">
+                <motion.div
+                  variants={fadeIn("up", "tween", 0.6, 1)}
+                  className="pt-4"
+                >
                   <button
                     type="submit"
                     disabled={isSubmitting}
                     className="group relative w-full bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 text-white font-semibold py-4 px-8 rounded-xl transition-all duration-300 hover:shadow-2xl hover:shadow-purple-500/25 hover:scale-[1.02] disabled:opacity-60 disabled:cursor-not-allowed disabled:transform-none overflow-hidden"
                   >
                     {/* Button background animation */}
-                    <div className="absolute inset-0 bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 transition-all duration-300 group-hover:scale-110"></div>
+                    <motion.div
+                      whileHover={{ scale: 1.1 }}
+                      className="absolute inset-0 bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 transition-all duration-300 group-hover:scale-110"
+                    ></motion.div>
 
                     <div className="relative flex items-center justify-center space-x-3">
                       {isSubmitting ? (
                         <>
-                          <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+                          <motion.div
+                            animate={{ rotate: 360 }}
+                            transition={{
+                              duration: 1,
+                              repeat: Infinity,
+                              ease: "linear",
+                            }}
+                            className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full"
+                          ></motion.div>
                           <span>Sending Message...</span>
                         </>
                       ) : (
                         <>
                           <span>Send Message</span>
-                          <Send className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" />
+                          <motion.div
+                            whileHover={{ x: 5, y: -5 }}
+                            transition={{ type: "spring", stiffness: 500 }}
+                          >
+                            <Send className="w-5 h-5" />
+                          </motion.div>
                         </>
                       )}
                     </div>
                   </button>
-                </div>
+                </motion.div>
 
                 {/* Status messages */}
                 {submitStatus === "success" && (
-                  <div className="p-6 bg-gradient-to-r from-emerald-500/10 to-green-500/10 border border-emerald-500/20 text-emerald-300 rounded-xl backdrop-blur-sm">
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0 }}
+                    className="p-6 bg-gradient-to-r from-emerald-500/10 to-green-500/10 border border-emerald-500/20 text-emerald-300 rounded-xl backdrop-blur-sm"
+                  >
                     <div className="flex items-center space-x-3">
                       <div className="w-6 h-6 bg-emerald-500 rounded-full flex items-center justify-center">
                         <svg
@@ -204,11 +284,16 @@ export default function Contact() {
                         </p>
                       </div>
                     </div>
-                  </div>
+                  </motion.div>
                 )}
 
                 {submitStatus === "error" && (
-                  <div className="p-6 bg-gradient-to-r from-red-500/10 to-pink-500/10 border border-red-500/20 text-red-300 rounded-xl backdrop-blur-sm">
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0 }}
+                    className="p-6 bg-gradient-to-r from-red-500/10 to-pink-500/10 border border-red-500/20 text-red-300 rounded-xl backdrop-blur-sm"
+                  >
                     <div className="flex items-center space-x-3">
                       <div className="w-6 h-6 bg-red-500 rounded-full flex items-center justify-center">
                         <svg
@@ -232,14 +317,17 @@ export default function Contact() {
                         </p>
                       </div>
                     </div>
-                  </div>
+                  </motion.div>
                 )}
               </form>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
           {/* Alternative contact methods */}
-          <div className="mt-16 text-center">
+          <motion.div
+            variants={fadeIn("up", "tween", 0.7, 1)}
+            className="mt-16 text-center"
+          >
             <h3 className="text-2xl font-semibold text-white mb-8">
               Other Ways to Connect
             </h3>
@@ -262,27 +350,29 @@ export default function Contact() {
                   icon: "➕",
                 },
               ].map((link, index) => (
-                <a
+                <motion.a
                   key={link.name}
                   href={link.href}
                   target={link.name !== "Email" ? "_blank" : undefined}
                   rel={
                     link.name !== "Email" ? "noopener noreferrer" : undefined
                   }
-                  className="group flex flex-col items-center space-y-3 p-6 rounded-xl bg-slate-800/30 backdrop-blur-sm border border-slate-700/30 hover:border-purple-500/50 transition-all duration-300 hover:transform hover:scale-105"
+                  whileHover={{ y: -5 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="group flex flex-col items-center space-y-3 p-6 rounded-xl bg-slate-800/30 backdrop-blur-sm border border-slate-700/30 hover:border-purple-500/50 transition-all duration-300"
                 >
-                  <div className="text-3xl group-hover:scale-110 transition-transform duration-300">
+                  <motion.div whileHover={{ scale: 1.1 }} className="text-3xl">
                     {link.icon}
-                  </div>
+                  </motion.div>
                   <span className="text-slate-300 group-hover:text-purple-300 font-medium transition-colors duration-300">
                     {link.name}
                   </span>
-                </a>
+                </motion.a>
               ))}
             </div>
-          </div>
+          </motion.div>
         </div>
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 }
