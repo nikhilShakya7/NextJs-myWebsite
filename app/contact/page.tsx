@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Send, Sparkles, Mail } from "lucide-react";
-import { motion } from "../../lib/framer-exports";
+import { motion } from "framer-motion";
 import { fadeIn, staggerContainer, slideIn } from "../../utils/motion";
 
 export default function Contact() {
