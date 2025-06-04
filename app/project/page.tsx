@@ -1,7 +1,5 @@
 "use client";
 import { ProjectCard } from "../components/projectCard";
-import { fadeIn, staggerContainer, zoomIn } from "../../utils/motion";
-import { motion } from "../../lib/framer-exports";
 
 const projects = [
   {
@@ -71,93 +69,39 @@ const projects = [
 
 export default function Projects() {
   return (
-    <motion.div
-      initial="hidden"
-      whileInView="show"
-      viewport={{ once: true, amount: 0.25 }}
-      className="relative min-h-screen"
-    >
-      {/* Background elements with animations */}
-      <div className="fixed inset-0 -z-10 overflow-hidden">
-        <motion.div
-          variants={fadeIn("up", "tween", 0.5, 1)}
+    <div className="relative min-h-screen">
+      <div className="fixed inset-0 -z-10">
+        <div
           className="absolute inset-0 bg-[url('/images/projects-bg.jpg')] bg-cover bg-center"
           style={{
             backgroundImage:
               "linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.9))",
           }}
         />
-        <motion.div
-          variants={zoomIn(0.5, 1)}
-          className="absolute inset-0 bg-gradient-to-br from-blue-900/30 via-purple-900/20 to-pink-900/30"
-        />
-
-        {/* Animated floating elements */}
-        <motion.div
-          animate={{
-            y: [0, -20, 0],
-            opacity: [0.5, 0.8, 0.5],
-          }}
-          transition={{
-            duration: 10,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-          className="absolute top-1/4 left-1/4 w-40 h-40 bg-purple-500/10 rounded-full blur-xl"
-        />
-        <motion.div
-          animate={{
-            y: [0, 20, 0],
-            opacity: [0.3, 0.6, 0.3],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 2,
-          }}
-          className="absolute bottom-1/3 right-1/4 w-48 h-48 bg-blue-500/10 rounded-full blur-xl"
-        />
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-900/30 via-purple-900/20 to-pink-900/30" />
       </div>
 
-      <motion.div
-        variants={staggerContainer(0.1, 0.3)}
-        className="relative min-h-screen p-8 pt-24"
-      >
+      <div className="relative min-h-screen p-8 pt-24">
         <div className="max-w-6xl mx-auto">
-          <motion.div
-            variants={fadeIn("up", "tween", 0.2, 1)}
-            className="mb-12 text-center"
-          >
-            <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent mb-4">
+          <div className="mb-12 text-center">
+            <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent mb-4 mt--">
               My Mini Projects
             </h1>
-            <motion.p
-              whileHover={{ scale: 1.02 }}
-              className="text-lg text-gray-300 max-w-2xl mx-auto inline-block"
-            >
+            <p className="text-lg text-gray-300 max-w-2xl mx-auto">
               Here are some of my featured projects. Each one represents unique
               challenges and creative solutions.
-            </motion.p>
-          </motion.div>
+            </p>
+          </div>
 
-          <motion.div
-            variants={staggerContainer(0.1, 0.2)}
-            className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
-          >
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {projects.map((project, index) => (
-              <motion.div
-                key={project.id}
-                variants={fadeIn("up", "spring", index * 0.1, 0.75)}
-                whileHover={{ y: -10 }}
-                whileTap={{ scale: 0.98 }}
-              >
+              <div key={project.id}>
                 <ProjectCard project={project} />
-              </motion.div>
+              </div>
             ))}
-          </motion.div>
+          </div>
         </div>
-      </motion.div>
-    </motion.div>
+      </div>
+    </div>
   );
 }
