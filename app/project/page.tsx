@@ -65,6 +65,14 @@ const projects = [
     link: "https://github.com/nikhilShakya7/Python_Face-Attendence-System",
     image: "7.svg",
   },
+  {
+    id: 8,
+    title: "Flappy Bird Clone",
+    description: "A Flappy bird clone built using flutter.",
+    tags: ["Flutter", "Dart"],
+    link: "https://github.com/nikhilShakya7/Flutter-Flappy_Bird",
+    image: "8.png",
+  },
 ];
 
 export default function Projects() {
