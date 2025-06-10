@@ -68,7 +68,8 @@ const projects = [
   {
     id: 8,
     title: "Flappy Bird Clone",
-    description: "A Flappy bird clone built using flutter.",
+    description:
+      "A fun and engaging Flappy Bird clone built using Flutter and Dart. This project recreates the classic gameplay mechanics with smooth animations, collision detection, scoring, and customizable components. Ideal for learning Flutter game development using the Flame engine.",
     tags: ["Flutter", "Dart"],
     link: "https://github.com/nikhilShakya7/Flutter-Flappy_Bird",
     image: "8.png",
