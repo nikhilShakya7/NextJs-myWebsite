@@ -4,11 +4,13 @@ import { useState } from "react";
 import { Send, Sparkles, Mail } from "lucide-react";
 import { motion } from "framer-motion";
 import { fadeIn, staggerContainer, slideIn } from "../../utils/motion";
+import emailjs from "emailjs-com";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    subject: "",
     message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -22,24 +24,34 @@ export default function Contact() {
     }));
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: { preventDefault: () => void }) => {
     e.preventDefault();
     setIsSubmitting(true);
-    try {
-      const res = await fetch("./api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      });
-      if (!res.ok) throw new Error("Failed to send message");
-      setSubmitStatus("success");
-      setFormData({ name: "", email: "", message: "" });
-    } catch (error) {
-      setSubmitStatus("error");
-    } finally {
-      setIsSubmitting(false);
-      setTimeout(() => setSubmitStatus("idle"), 5000);
-    }
+
+    emailjs
+      .send(
+        "service_6yofzip",
+        "template_fk5h9f7",
+        formData,
+        "2Ae5oRFqdT9lxGXz9"
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+          setSubmitStatus("success");
+          setFormData({
+            name: "",
+            email: "",
+            subject: "",
+            message: "",
+          });
+        },
+        (error) => {
+          console.log(error.text);
+          setSubmitStatus("error");
+        }
+      )
+      .finally(() => setIsSubmitting(false));
   };
 
   return (
@@ -173,6 +185,30 @@ export default function Contact() {
                       id="email"
                       name="email"
                       value={formData.email}
+                      onChange={handleChange}
+                      className="w-full px-6 py-4 bg-slate-900/50 border border-slate-600 rounded-xl text-white placeholder-slate-400 focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300 backdrop-blur-sm"
+                      placeholder="Email"
+                      required
+                    />
+                    <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-purple-500/0 via-purple-500/0 to-purple-500/0 group-focus-within:from-purple-500/10 group-focus-within:via-pink-500/10 group-focus-within:to-blue-500/10 transition-all duration-500 pointer-events-none"></div>
+                  </div>
+                </motion.div>
+                <motion.div
+                  variants={fadeIn("up", "tween", 0.4, 1)}
+                  className="group"
+                >
+                  <label
+                    htmlFor="email"
+                    className="block text-sm font-semibold text-slate-200 mb-3 transition-colors duration-300 group-focus-within:text-purple-400"
+                  >
+                    Subject
+                  </label>
+                  <div className="relative">
+                    <input
+                      type="text"
+                      id="subject"
+                      name="subject"
+                      value={formData.subject}
                       onChange={handleChange}
                       className="w-full px-6 py-4 bg-slate-900/50 border border-slate-600 rounded-xl text-white placeholder-slate-400 focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300 backdrop-blur-sm"
                       placeholder="Email"
