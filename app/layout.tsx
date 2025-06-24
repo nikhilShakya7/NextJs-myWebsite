@@ -5,7 +5,7 @@ export const metadata = {
   title: "Nikhil | Professional Portfolio",
 
   description: "Showcase of my work and skills",
-  icon: "favicon.ico",
+  icon: "/images/business-man.png",
 };
 
 export default function RootLayout({
@@ -18,7 +18,7 @@ export default function RootLayout({
       <head>
         <link
           rel="icon"
-          href="/bussiness-man.png"
+          href="/images/bussiness-man.png"
           type="image/png"
           sizes="32x32"
         />

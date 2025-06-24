@@ -9,8 +9,9 @@ const projects = [
       "A stylish React-based UI showcasing modern layouts and responsive design.",
     tags: ["React"],
     link: "https://reactjs-foodie-me.vercel.app/",
-    image: "6.svg",
+    image: "/images/6.svg",
   },
+
   {
     id: 1,
     title: "Weather Application",
@@ -18,7 +19,16 @@ const projects = [
       "A React app that fetches real-time weather data with a clean and user-friendly interface.",
     tags: ["React", "API"],
     link: "https://reactjs-weather-app-phi.vercel.app/",
-    image: "1.svg",
+    image: "/images/1.svg",
+  },
+  {
+    id: 9,
+    title: "वसः  A clothing website",
+    description:
+      "Wosa (वसः) is a responsive fashion e-commerce site built with React.js and Context API.It features dynamic routing and localStorage persistence.",
+    tags: ["React"],
+    link: "https://reactjs-wosa.vercel.app/",
+    image: "/images/9.svg",
   },
   {
     id: 2,
@@ -27,7 +37,7 @@ const projects = [
       "A sleek tech UI built with React and Bootstrap to showcase media content.",
     tags: ["React", "Bootstrap"],
     link: "https://reactjs-tech-nest.vercel.app/",
-    image: "2.svg",
+    image: "/images/2.svg",
   },
   {
     id: 3,
@@ -36,7 +46,7 @@ const projects = [
       "A movie browsing platform built with Next.js that displays films and ratings.",
     tags: ["NextJs", "Typescript", "Tailwind CSS"],
     link: "https://next-js-movies-phi-self.vercel.app/",
-    image: "3.svg",
+    image: "/images/3.svg",
   },
   {
     id: 5,
@@ -45,7 +55,7 @@ const projects = [
       "A dynamic quiz app using Next.js and TypeScript with and category selection feature.",
     tags: ["NextJs", "Typescript", "Tailwind CSS"],
     link: "https://next-js-quizz-app-ycfc.vercel.app/",
-    image: "5.svg",
+    image: "/images/5.svg",
   },
   {
     id: 4,
@@ -54,7 +64,7 @@ const projects = [
       "An analytics dashboard built with modern UI components for data visualization.",
     tags: ["NextJs", "Typescript", "Tailwind CSS"],
     link: "https://next-js-dashboard-tlad.vercel.app/",
-    image: "4.svg",
+    image: "/images/4.svg",
   },
   {
     id: 7,
@@ -63,7 +73,7 @@ const projects = [
       "A Python-based system using facial recognition and SQLite to automate attendance tracking.",
     tags: ["Python", "SQLite"],
     link: "https://github.com/nikhilShakya7/Python_Face-Attendence-System",
-    image: "7.svg",
+    image: "/images/7.svg",
   },
   {
     id: 8,
@@ -72,7 +82,7 @@ const projects = [
       "A fun and engaging Flappy Bird clone built using Flutter and Dart. This project recreates the classic gameplay mechanics with smooth animations, collision detection, scoring, and customizable components. Ideal for learning Flutter game development using the Flame engine.",
     tags: ["Flutter", "Dart"],
     link: "https://github.com/nikhilShakya7/Flutter-Flappy_Bird",
-    image: "8.png",
+    image: "/images/8.png",
   },
 ];
 
