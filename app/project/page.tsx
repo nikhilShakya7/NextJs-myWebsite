@@ -1,5 +1,7 @@
 "use client";
+import { motion } from "framer-motion";
 import { ProjectCard } from "../components/projectCard";
+import { useEffect, useState } from "react";
 
 const projects = [
   {
@@ -86,10 +88,58 @@ const projects = [
   },
 ];
 
+const container = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.3,
+    },
+  },
+};
+
+const item = {
+  hidden: { opacity: 0, y: 20 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+};
+
+const titleVariants = {
+  hidden: { opacity: 0, y: -20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.8, ease: "easeOut" },
+  },
+};
+
+const descriptionVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { delay: 0.4, duration: 0.8 },
+  },
+};
+
 export default function Projects() {
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  if (!isMounted) {
+    return null;
+  }
+
   return (
     <div className="relative min-h-screen">
-      <div className="fixed inset-0 -z-10">
+      <motion.div
+        className="fixed inset-0 -z-10"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8 }}
+      >
         <div
           className="absolute inset-0 bg-[url('/images/projects-bg.jpg')] bg-cover bg-center"
           style={{
@@ -97,28 +147,55 @@ export default function Projects() {
               "linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.9))",
           }}
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-900/30 via-purple-900/20 to-pink-900/30" />
-      </div>
+        <motion.div
+          className="absolute inset-0 bg-gradient-to-br from-blue-900/30 via-purple-900/20 to-pink-900/30"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.2, duration: 1 }}
+        />
+      </motion.div>
 
       <div className="relative min-h-screen p-8 pt-24">
         <div className="max-w-6xl mx-auto">
           <div className="mb-12 text-center">
-            <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent mb-4 mt--">
+            <motion.h1
+              className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent mb-4"
+              initial="hidden"
+              animate="visible"
+              variants={titleVariants}
+            >
               My Mini Projects
-            </h1>
-            <p className="text-lg text-gray-300 max-w-2xl mx-auto">
+            </motion.h1>
+            <motion.p
+              className="text-lg text-gray-300 max-w-2xl mx-auto"
+              initial="hidden"
+              animate="visible"
+              variants={descriptionVariants}
+            >
               Here are some of my featured projects. Each one represents unique
               challenges and creative solutions.
-            </p>
+            </motion.p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {projects.map((project, index) => (
-              <div key={project.id}>
+          <motion.div
+            className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+            variants={container}
+            initial="hidden"
+            animate="show"
+          >
+            {projects.map((project) => (
+              <motion.div
+                key={project.id}
+                variants={item}
+                whileHover={{
+                  y: -5,
+                  transition: { duration: 0.2 },
+                }}
+              >
                 <ProjectCard project={project} />
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </div>
     </div>

@@ -211,7 +211,7 @@ export default function Contact() {
                       value={formData.subject}
                       onChange={handleChange}
                       className="w-full px-6 py-4 bg-slate-900/50 border border-slate-600 rounded-xl text-white placeholder-slate-400 focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300 backdrop-blur-sm"
-                      placeholder="Email"
+                      placeholder="Subject"
                       required
                     />
                     <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-purple-500/0 via-purple-500/0 to-purple-500/0 group-focus-within:from-purple-500/10 group-focus-within:via-pink-500/10 group-focus-within:to-blue-500/10 transition-all duration-500 pointer-events-none"></div>
