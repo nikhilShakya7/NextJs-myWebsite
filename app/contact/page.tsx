@@ -8,16 +8,7 @@ import emailjs from "emailjs-com";
 import { Send, Sparkles, Mail } from "lucide-react";
 import { motion } from "framer-motion";
 import { fadeIn, staggerContainer, slideIn } from "../../utils/motion";
-
-const contactSchema = yup.object().shape({
-  name: yup.string().required("Your name is required"),
-  email: yup.string().email("Invalid email").required("Your email is required"),
-  subject: yup.string().required("Please enter a subject"),
-  message: yup
-    .string()
-    .min(10, "Message must be at least 10 characters")
-    .required("Message is required"),
-});
+import { contactSchema } from "../../lib/validation/contactSchema";
 
 export default function Contact() {
   const [submitStatus, setSubmitStatus] = useState("idle");
