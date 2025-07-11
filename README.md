@@ -37,7 +37,7 @@ This site is a reflection of who I am — a developer, creator, and problem solv
      ```
   2. Navigate into the project directory:
      ```bash
-     cd repo
+     cd NextJs-myWebsite
      ```
   3. Install the required dependencies:
      ```bash
