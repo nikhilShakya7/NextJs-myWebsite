@@ -43,15 +43,11 @@ export default function Contact() {
       viewport={{ once: true, amount: 0.25 }}
       className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 relative overflow-hidden"
     >
-      {/* Animated Background & Grid Pattern (same as before) */}
-
       <motion.div
         variants={staggerContainer(0.1, 0.2)}
         className="relative z-10 py-16 px-4 sm:px-6 lg:px-8"
       >
         <div className="max-w-2xl mx-auto">
-          {/* Heading and Description */}
-
           {/* Contact Form */}
           <motion.div
             variants={slideIn("up", "tween", 0.2, 1)}

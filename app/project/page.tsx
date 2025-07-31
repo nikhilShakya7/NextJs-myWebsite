@@ -33,6 +33,15 @@ const projects = [
     image: "/images/9.svg",
   },
   {
+    id: 10,
+    title: "Renovyte.",
+    description:
+      "Simple and easy to use website to help you with every step of your home renovation.",
+    tags: ["NextJs", "Tailwind CSS", "Typescript"],
+    link: "https://nextjs-extension-manager.vercel.app/",
+    image: "/images/10.svg",
+  },
+  {
     id: 2,
     title: "Technest",
     description:
