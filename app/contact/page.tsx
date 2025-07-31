@@ -53,6 +53,13 @@ export default function Contact() {
             variants={slideIn("up", "tween", 0.2, 1)}
             className="relative"
           >
+            <motion.h1
+              className="text-4xl  text-center py-2 md:text-5xl font-bold bg-gradient-to-r from-blue-300 via-purple-600 to-pink-500  bg-clip-text text-transparent mb-4"
+              initial="hidden"
+              animate="visible"
+            >
+              Drop A Message
+            </motion.h1>
             <motion.div className="relative bg-slate-800/90 backdrop-blur-xl rounded-2xl border border-slate-700/50 shadow-2xl p-8 sm:p-12">
               <form onSubmit={handleSubmit(onSubmit)} className="space-y-8">
                 {/* Name Field */}
@@ -147,7 +154,7 @@ export default function Contact() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 text-white py-4 px-8 rounded-xl font-semibold disabled:opacity-60"
+                  className="w-full bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 text-white py-4 px-8 rounded-xl font-semibold disabled:opacity-60 hover:cursor-pointer hover:tracking-wide"
                 >
                   {isSubmitting ? "Sending..." : "Send Message"}
                 </button>
