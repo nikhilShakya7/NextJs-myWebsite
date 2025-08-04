@@ -6,11 +6,11 @@ import { useEffect, useState } from "react";
 const projects = [
   {
     id: 6,
-    title: "Foodie Me",
+    title: "Event Manager",
     description:
-      "A stylish React-based UI showcasing modern layouts and responsive design.",
-    tags: ["React"],
-    link: "https://reactjs-foodie-me.vercel.app/",
+      "A stylish React-based UI showcasing modern layouts and responsive design thst helps to manage events.",
+    tags: ["React", "Tailwind CSS"],
+    link: "https://react-js-event-manager.vercel.app/",
     image: "/images/6.svg",
   },
 
