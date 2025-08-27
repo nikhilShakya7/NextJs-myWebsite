@@ -102,10 +102,17 @@ export default function About() {
               {[
                 {
                   year: "2025",
+                  role: "Junior Frontend Developer",
+                  company: "Peace Nepal Dot Com",
+                  description:
+                    " Worked on building responsive user interfaces using ReactJS and other frameworks. Web applications for enterprise clients.",
+                },
+                {
+                  year: "2025-2025",
                   role: "Intern",
                   company: "Peace Nepal Dot Com",
                   description:
-                    " Worked on building responsive user interfaces using NextJS and other frameworks. web applications for enterprise clients.",
+                    " Learn to build responsive user interfaces using NextJS and other frameworks.",
                 },
                 {
                   year: "2022 - 2025",
