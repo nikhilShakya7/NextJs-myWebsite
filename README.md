@@ -7,6 +7,7 @@ This site is a reflection of who I am — a developer, creator, and problem solv
 🌐 **Live Website:** [shakyanikhil18.com.np](https://www.shakyanikhil18.com.np/)
 
 
+
 ## 🚀 Tech Stack
 
 - **Framework:** [Next.js](https://nextjs.org/)
