@@ -18,9 +18,12 @@
     "next": "15.3.3",
     "nodemailer": "^7.0.3",
     "react": "^19.0.0",
+    "react-confetti": "^6.4.0",
+    "react-confetti-explosion": "^3.0.3",
     "react-dom": "^19.0.0",
     "react-hook-form": "^7.59.0",
     "react-simple-typewriter": "^5.0.1",
+    "react-use": "^17.6.0",
     "yup": "^1.6.1"
   },
   "devDependencies": {

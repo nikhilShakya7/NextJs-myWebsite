@@ -124,6 +124,11 @@ export function Footer() {
             Built with Next.js, Tailwind CSS
           </p>
         </div>
+        <div className="mt-4 text-right">
+          <p className="text-gray-400 dark:text-gray-600 text-xs italic">
+            *The best page isn’t shown. Can you discover it?{" "}
+          </p>
+        </div>
       </div>
     </footer>
   );

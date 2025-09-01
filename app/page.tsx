@@ -9,6 +9,7 @@ import {
   DevicePhoneMobileIcon,
   CloudIcon,
 } from "@heroicons/react/24/outline";
+import { Rocket } from "lucide-react";
 
 const skills = [
   { name: "Frontend Development", level: 80, icon: CodeBracketIcon },
@@ -125,7 +126,24 @@ export default function Home() {
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 font-semibold">
                 inspire and connect
               </span>{" "}
-              with people around the world 🚀
+              with people around the world{" "}
+              <motion.div
+                animate={{
+                  y: [0, -5, 0],
+                  rotate: [0, 15, -15, 0],
+                }}
+                transition={{
+                  duration: 2,
+                  repeat: Infinity,
+                  repeatType: "loop",
+                  ease: "easeInOut",
+                }}
+                className="inline-block"
+              >
+                <Link href="/secret-page" className="text-2xl">
+                  🚀
+                </Link>
+              </motion.div>
             </motion.p>
 
             <motion.div
