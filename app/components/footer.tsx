@@ -124,8 +124,8 @@ export function Footer() {
             Built with Next.js, Tailwind CSS
           </p>
         </div>
-        <div className="mt-4 text-right">
-          <p className="text-gray-400 dark:text-gray-600 text-xs italic">
+        <div className="mt-4 text-right md:flex-row justify-between items-center">
+          <p className="text-gray-400 dark:text-gray-600 text-xs italic md:text-center">
             *The best page isn’t shown. Can you discover it?{" "}
           </p>
         </div>
