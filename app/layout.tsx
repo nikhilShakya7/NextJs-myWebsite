@@ -1,6 +1,7 @@
 import "./globals.css";
 import { Navbar } from "./components/navbar";
 import { Footer } from "./components/footer";
+import Script from "next/script";
 export const metadata = {
   title: "Nikhil | Professional Portfolio",
 
@@ -22,6 +23,19 @@ export default function RootLayout({
           type="image/png"
           sizes="32x32"
         />
+        {/*  Google Analytics script */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-R3VNKY9THX"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-R3VNKY9THX');
+          `}
+        </Script>
       </head>
       <body className="bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
         <Navbar />
