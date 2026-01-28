@@ -102,6 +102,13 @@ export default function About() {
               {[
                 {
                   year: "2025",
+                  role: "Junior Quality Assurance Analyst",
+                  company: "Peace Nepal Dot Com",
+                  description:
+                    "Performed manual testing on web applications to identify functional, UI and usability issues. Designed and executed test cases based on requirements and user stories. ",
+                },
+                {
+                  year: "2025",
                   role: "Junior Frontend Developer",
                   company: "Peace Nepal Dot Com",
                   description:
