@@ -101,6 +101,13 @@ export default function About() {
             <div className="space-y-12">
               {[
                 {
+                  year: "2026",
+                  role: "Junior Quality Assurance Analyst",
+                  company: "CodePixelz Media",
+                  description:
+                    "Carried out manual testing on web applications to detect functional defects, UI inconsistencies, and usability problems. Created and executed test cases aligned with requirements and user stories. ",
+                },
+                {
                   year: "2025",
                   role: "Junior Quality Assurance Analyst",
                   company: "Peace Nepal Dot Com",
