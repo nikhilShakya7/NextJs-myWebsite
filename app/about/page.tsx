@@ -1,6 +1,6 @@
 "use client";
 import { motion } from "../../lib/framer-exports";
-import Image from "next/image";
+//import Image from "next/image";
 
 export default function About() {
   return (
@@ -107,13 +107,7 @@ export default function About() {
                   description:
                     "Carried out manual testing on web applications to detect functional defects, UI inconsistencies, and usability problems. Created and executed test cases aligned with requirements and user stories. ",
                 },
-                {
-                  year: "2025",
-                  role: "Junior Quality Assurance Analyst",
-                  company: "Peace Nepal Dot Com",
-                  description:
-                    "Performed manual testing on web applications to identify functional, UI and usability issues. Designed and executed test cases based on requirements and user stories. ",
-                },
+
                 {
                   year: "2025",
                   role: "Junior Quality Assurance Analyst",
